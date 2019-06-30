@@ -1,8 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class='container-fluid'>
-  {{innerHtml}}
+<!-- <div class='container-fluid'>
+
+</div> -->
+<div class="container">
+  <div class="row col-12">
+    <vg-player >
+      <video #media
+             [vgHls]="videoLink"
+             (onGetBitrates)="hlsBitrates = $event"
+             id="my-video"
+             type="video/mp4"
+             preload="auto"
+             controls
+             crossorigin>
+      </video>
+    </vg-player>
+  </div>
 </div>
-<button (click)='getData()'>Get data</button>
-
-
 <router-outlet></router-outlet>

@@ -10,14 +10,7 @@ export class FileService {
     private http: HttpClient
   ) { }
 
-  // postAPIData(){
-  //   return this.http.post('/api/postData', {'firstName' : 'Code', 'lastName' : 'Handbook'})
-  // }
-
   getAPIData(){
-  	return this.http.get('/api/getData')
+  	return this.http.get('http://localhost:3000/getData')
   }
-
-
-
 }

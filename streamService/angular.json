@@ -27,10 +27,11 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/videogular2/fonts/videogular.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": ["../streamService/node_modules/hls.js/dist/hls.min.js"],
             "es5BrowserSupport": true
           },
           "configurations": {
