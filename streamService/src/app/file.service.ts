@@ -13,4 +13,12 @@ export class FileService {
   getAPIData(){
   	return this.http.get('http://localhost:3000/getData')
   }
+
+  pipeLink(){
+    return this.http.get('http://localhost:3000/getVideo');
+  }
+
+  getProgram(){
+    return this.http.get('http://localhost:3000/program');
+  }
 }

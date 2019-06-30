@@ -11,17 +11,29 @@ export class AppComponent {
   title = 'streamService';
   videoLink = '';
   headers: any = {'Access-Control-Allow-Origin': '*' };
+  programa;
   constructor(
     private http: HttpClient,
     private file: FileService
     ) {
-      this.file.getAPIData().subscribe(res=>{
-        this.videoLink = res['link']
-        // this.videoLink = 'http://localhost:3000/getData';
-        console.log(res);
-        // this.headers = res['data']['headers']
-        // console.log(this.headers)
-
-      })
+      this.getVideoPipe();
+      this.getProgram();
    }
+
+
+   getVideoPipe(){
+     this.file.pipeLink().subscribe(res=>{
+       this.videoLink = res['response']['data']['content'];
+     })
+   }
+
+   getProgram(){
+     this.file.getProgram().subscribe(res=>{
+       console.log(res);
+       this.programa = res['tvprog']['items'];
+       console.log(this.programa)
+     })
+   }
+
+
 }

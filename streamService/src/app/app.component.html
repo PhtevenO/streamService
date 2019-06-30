@@ -3,7 +3,8 @@
 
 </div> -->
 <div class="container">
-  <div class="row col-12">
+  <div class="row title"><h2>LTV1 Tiesiogiai</h2></div>
+  <div class="row video">
     <vg-player >
       <video #media
              [vgHls]="videoLink"
@@ -12,9 +13,23 @@
              type="video/mp4"
              preload="auto"
              controls
+             controlsList='Track'
              crossorigin>
       </video>
     </vg-player>
   </div>
+  <div class="row programa">
+      <div *ngFor='let prog of programa; let i = index' class="col-6 card ">
+          <div class="card-body">
+            <p *ngIf='i===0'>Dabar rodoma: {{prog.channel}} </p>
+            <p *ngIf='i > 0'>{{prog.channel}}</p>
+              <h3 class='col-9'>{{prog.title}}</h3>
+              <p class='col-9'>{{prog.desc}}</p>
+
+          </div>
+
+        </div>
+  </div>
+
 </div>
 <router-outlet></router-outlet>

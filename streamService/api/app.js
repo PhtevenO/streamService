@@ -13,39 +13,15 @@ app.use(function (req, res, next) {
   next();
 });
 
-let streamLink = '';
-let streamData ='';
-
-
-const dat = request.get(url, (err, resp,body)=>{
-  if(!err && resp.statusCode === 200){
-    const secondReqLink = JSON.parse(body)['response']['data']['content'];
-    // console.log(secondReqLink)
-    streamLink = secondReqLink
-  }
-});
-
-
-
-
-
-// const video = request.get(streamLink, (error, response, body) =>{
-//   if(!error && response.statusCode === 200){
-//     // console.log(response.request.uri);
-//     // streamData = response.request;
-//   }
-// })
-
-
-
-app.get('/getData', (req, res) =>{
-  res.send({link: streamLink});
+app.get('/program', (req,res)=>{
+  const request = https.get('https://www.lrt.lt/static/tvprog/tvprog.json', (response)=>{
+    console.log(response)
+    response.pipe(res);
+  })
 })
-
 
 app.get('/getVideo',(req, res)=>{
   const request = https.get(url, (response)=>{
-    // console.log(response);
     console.log('new Request');
     response.pipe(res)
   });
