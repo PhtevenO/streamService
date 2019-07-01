@@ -26,11 +26,6 @@ export class AppComponent {
       console.log(this.player)
    }
 
-   test(e){
-     console.log(e);
-   }
-
-
    getVideoPipe(){
      this.file.pipeLink().subscribe(res=>{
        this.videoLink = res['response']['data']['content'];
