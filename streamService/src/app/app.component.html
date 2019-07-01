@@ -4,8 +4,8 @@
 </div> -->
 <div class="container">
   <div class="row title"><h2>LTV1 Tiesiogiai</h2></div>
-  <div class="row video">
-    <vg-player >
+  <div class="row video player">
+    <vg-player>
       <video #media
              [vgHls]="videoLink"
              (onGetBitrates)="hlsBitrates = $event"
@@ -13,9 +13,14 @@
              type="video/mp4"
              preload="auto"
              controls
-             controlsList='Track'
              crossorigin>
       </video>
+      <span *ngIf='playing' class='liveTag'>• Tiesiogiai</span>
+      <!-- <div class="player__controls">
+        <button class="player__button toggle" title="Toggle Play">►</button>
+        <span>Live</span>
+        <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+      </div> -->
     </vg-player>
   </div>
   <div class="row programa">
